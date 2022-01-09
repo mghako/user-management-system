@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\User\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::name('users.')->group(function() {
+    
+    Route::get('users', [UserController::class, 'index'])->name('index');
 
-Route::get('dashboard', function() {
-    return view('home');
 });
